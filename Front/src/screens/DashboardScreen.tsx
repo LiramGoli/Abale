@@ -1,11 +1,11 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { globalStyles } from "../utils/GlobalStyles";
 
 const DashboardScreen: React.FC = () => {
   return (
-    <View style={styles.container}>
-      {/* Header */}
+    <View style={globalStyles.container}>
       <View style={styles.header}>
         <View style={styles.logoContainer}>
           <Icon name="circle" style={styles.logo} />
@@ -15,41 +15,41 @@ const DashboardScreen: React.FC = () => {
         </TouchableOpacity>
       </View>
 
-      {/* Main Content */}
       <View style={styles.mainContent}>
-        <Text style={styles.mainTitle}>Hey Dude</Text>
+        <Text style={styles.mainTitle}>Hey Liram</Text>
         <View style={styles.circlesContainer}>
           <Icon name="circle" style={styles.circle} />
           <Icon name="circle" style={[styles.circle, styles.centerCircle]} />
           <Icon name="circle" style={styles.circle} />
         </View>
         <View style={styles.circleLabelsContainer}>
-          <Text style={styles.circleLabel}>Trimester</Text>
-          <Text style={styles.circleLabel}>Week</Text>
-          <Text style={styles.circleLabel}>Month</Text>
+          <Text style={[globalStyles.text, styles.circleLabel]}>Trimester</Text>
+          <View style={styles.centerLabelContainer}>
+            <Text style={[globalStyles.text, styles.centerLabel]}>Week</Text>
+          </View>
+          <Text style={{...globalStyles.text, marginHorizontal:44}}>Month</Text>
         </View>
       </View>
 
-      {/* Grid Icons */}
       <View style={styles.grid}>
         <View style={styles.gridRow}>
           <View style={styles.gridItem}>
             <Icon name="calendar" style={styles.icon} />
-            <Text style={styles.gridText}>Follow up tests</Text>
+            <Text style={globalStyles.text}>Follow up tests</Text>
           </View>
           <View style={styles.gridItem}>
             <Icon name="child" style={styles.icon} />
-            <Text style={styles.gridText}>Weekly review</Text>
+            <Text style={globalStyles.text}>Follow up tests</Text>
           </View>
         </View>
         <View style={styles.gridRow}>
           <View style={styles.gridItem}>
             <Icon name="users" style={styles.icon} />
-            <Text style={styles.gridText}>Share With Friends</Text>
+            <Text style={globalStyles.text}>Follow up tests</Text>
           </View>
           <View style={styles.gridItem}>
             <Icon name="clipboard" style={styles.icon} />
-            <Text style={styles.gridText}>checklist</Text>
+            <Text style={globalStyles.text}>Follow up tests</Text>
           </View>
         </View>
       </View>
@@ -61,24 +61,18 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#0A0A2A",
-    paddingTop: 20,
-    paddingLeft: 15,
-    paddingRight: 15,
   },
   header: {
+    flex: 2,
     flexDirection: "row",
-    justifyContent: "space-between",
     alignItems: "center",
-    paddingTop:10
+    justifyContent: "center",
   },
   logoContainer: {
-    position: "absolute",
-    left: "50%",
-    transform: [{ translateX: -25 }],
+    position: "relative",
   },
   logo: {
-    paddingTop:20,
-    fontSize: 50,
+    fontSize: 90,
     color: "#FFFFFF",
   },
   menuButton: {
@@ -86,13 +80,13 @@ const styles = StyleSheet.create({
     right: 10,
   },
   menuText: {
-    fontSize: 24,
+    fontSize: 28,
     color: "#FFFFFF",
   },
   mainContent: {
-    paddingTop:15,
     alignItems: "center",
-    marginTop: 40,
+    flex: 3,
+    justifyContent: "space-between",
   },
   mainTitle: {
     fontSize: 24,
@@ -101,30 +95,40 @@ const styles = StyleSheet.create({
   },
   circlesContainer: {
     flexDirection: "row",
-    justifyContent: "center",
     alignItems: "center",
+    justifyContent: "center",
   },
   circle: {
     fontSize: 100,
     color: "#FFFFFF",
-    marginHorizontal: 10,
   },
   centerCircle: {
     fontSize: 150,
+    justifyContent: "center",
   },
   circleLabelsContainer: {
     flexDirection: "row",
-    justifyContent: "center",
-    marginTop: 10,
+    justifyContent: "space-between",
+    width: '100%',
   },
   circleLabel: {
-    fontSize: 16,
-    color: "#FFFFFF",
-    marginHorizontal: 20,
+    marginHorizontal: 26,
   },
+  centerLabelContainer: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    alignItems: "center",
+  },
+  centerLabel: {
+    fontSize: 18,
+    color: "#FFFFFF",
+    marginHorizontal: 32,
+  },
+
   grid: {
-    marginTop: 40,
-    backgroundColor: "red",
+    paddingTop: 100,
+    flex: 5,
   },
   gridRow: {
     flexDirection: "row",
