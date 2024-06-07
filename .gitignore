@@ -1,1 +1,2 @@
-Front/node_modules
+./Front/node_modules
+./Front/package-lock.json
