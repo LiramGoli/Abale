@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { globalStyles } from "../utils/GlobalStyles";
 
@@ -8,7 +8,7 @@ const DashboardScreen: React.FC = () => {
     <View style={globalStyles.container}>
       <View style={styles.header}>
         <View style={styles.logoContainer}>
-          <Icon name="circle" style={styles.logo} />
+          <Image source={require("../../assets/logo.png")} style={{width: 90, height: 90}} />
         </View>
         <TouchableOpacity style={styles.menuButton}>
           <Text style={styles.menuText}>☰</Text>
@@ -27,7 +27,9 @@ const DashboardScreen: React.FC = () => {
           <View style={styles.centerLabelContainer}>
             <Text style={[globalStyles.text, styles.centerLabel]}>Week</Text>
           </View>
-          <Text style={{...globalStyles.text, marginHorizontal:44}}>Month</Text>
+          <Text style={{ ...globalStyles.text, marginHorizontal: 44 }}>
+            Month
+          </Text>
         </View>
       </View>
 
@@ -109,7 +111,7 @@ const styles = StyleSheet.create({
   circleLabelsContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    width: '100%',
+    width: "100%",
   },
   circleLabel: {
     marginHorizontal: 26,
