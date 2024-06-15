@@ -1,12 +1,13 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
+import CirclesContainer from "../utils/CirclesContainer/CirclesContainer";
 import { globalStyles } from "../utils/GlobalStyles";
 
 const DashboardScreen: React.FC = () => {
   return (
     <View style={globalStyles.container}>
-      <View style={styles.header}>
+      <View style={{ ...globalStyles.header, flex: 2 }}>
         <View style={styles.logoContainer}>
           <Image
             source={require("../../assets/logo.png")}
@@ -18,22 +19,9 @@ const DashboardScreen: React.FC = () => {
         </TouchableOpacity>
       </View>
 
-      <View style={styles.mainContent}>
+      <View style={globalStyles.mainContent}>
         <Text style={styles.mainTitle}>Hey Liram</Text>
-        <View style={styles.circlesContainer}>
-          <Icon name="circle" style={styles.circle} />
-          <Icon name="circle" style={[styles.circle, styles.centerCircle]} />
-          <Icon name="circle" style={styles.circle} />
-        </View>
-        <View style={styles.circleLabelsContainer}>
-          <Text style={[globalStyles.text, styles.circleLabel]}>Trimester</Text>
-          <View style={styles.centerLabelContainer}>
-            <Text style={[globalStyles.text, styles.centerLabel]}>Week</Text>
-          </View>
-          <Text style={{ ...globalStyles.text, marginHorizontal: 44 }}>
-            Month
-          </Text>
-        </View>
+        <CirclesContainer />
       </View>
 
       <View style={styles.grid}>
@@ -67,12 +55,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#0A0A2A",
   },
-  header: {
-    flex: 2,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-  },
   logoContainer: {
     position: "relative",
   },
@@ -87,11 +69,6 @@ const styles = StyleSheet.create({
   menuText: {
     fontSize: 28,
     color: "#FFFFFF",
-  },
-  mainContent: {
-    alignItems: "center",
-    flex: 3,
-    justifyContent: "space-between",
   },
   mainTitle: {
     fontSize: 24,
