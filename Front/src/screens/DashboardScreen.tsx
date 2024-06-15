@@ -8,7 +8,10 @@ const DashboardScreen: React.FC = () => {
     <View style={globalStyles.container}>
       <View style={styles.header}>
         <View style={styles.logoContainer}>
-          <Image source={require("../../assets/logo.png")} style={{width: 90, height: 90}} />
+          <Image
+            source={require("../../assets/logo.png")}
+            style={{ width: 90, height: 90 }}
+          />
         </View>
         <TouchableOpacity style={styles.menuButton}>
           <Text style={styles.menuText}>☰</Text>
